@@ -1,0 +1,25 @@
+[project]
+name = "png-pfm-converter"
+version = "0.1.0"
+description = "PNG ↔ PFM converter"
+requires-python = ">=3.11"
+dependencies = [
+    "Pillow>=10.0",
+    "numpy>=1.26",
+]
+
+[project.scripts]
+png2pfm = "png_pfm_converter.cli:png2pfm"
+pfm2png = "png_pfm_converter.cli:pfm2png"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/png_pfm_converter"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
